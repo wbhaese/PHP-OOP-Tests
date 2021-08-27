@@ -5,14 +5,16 @@
         //Atributos, caracteristicas == variáveis
         private string $nome;
         private int $idade;
+        private Endereco $endereco;
         private static int $numDePessoas = 0;
 
         //comportamentos, métodos = funções
-        public function __construct(string $nome, int $idade)
+        public function __construct(string $nome, int $idade, Endereco $endereco)
         {
             $this->nome = $nome;
             $this->idade = $idade;
             $this->validaIdade($idade);
+            $this->endereco = $endereco;
             self::$numDePessoas++;
             //self referencia a própria classe
         }
