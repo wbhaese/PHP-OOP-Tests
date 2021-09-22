@@ -19,14 +19,14 @@
     echo "<pre>";
 
         $funcinario = new Funcionario("Samara Silva", 20, $endereco3, 'Gerente', 2.500);
-        var_dump($funcinario);
+        echo $funcinario->__toString();
 
         $funcinario2 = new Funcionario("Antonia Silva", 20, $endereco1, 'Gerente', 2.500);
-        var_dump($funcinario2);
+        // var_dump($funcinario2);
 
-        $cliente1 = new Cliente("José", 20, $endereco1, 'Gerente', 2.500);
-        var_dump($cliente1);
-
+        $cliente1 = new Cliente("José", 20, $endereco1, '01/02/1994', 2.500);
+        // var_dump($cliente1);
+        echo $cliente1->__toString();
 
         echo "<p>Numero de pessoas:" . Pessoa::getNumDePessoas() . "</p>";
 

@@ -39,4 +39,17 @@
         {
             $this->desconto = 0.05;
         }
+
+        //Exemplo de sobreescrita:
+        //ao ser redeclarado, mas com função diferente do original
+        public function __toString(): string
+        {
+            return "<p>Nome: " . $this->nome .
+                "<br>Idade: " . $this->idade . 
+                "<br>end.: " . $this->endereco->getNomeLogradouro() . " " .
+                $this->endereco->getNumero() .
+                "<br>Data Nasc: " . $this->getDataNascimento() .
+                "<br>Salário R$: " . $this->salario.
+                "</p>: ";
+        }
     }

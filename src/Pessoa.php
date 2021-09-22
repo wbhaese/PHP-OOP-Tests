@@ -3,9 +3,9 @@
     abstract class Pessoa
     {
         //Atributos, caracteristicas == variáveis
-        private string $nome;
-        private int $idade;
-        private Endereco $endereco;
+        protected string $nome;
+        protected int $idade;
+        protected Endereco $endereco;
 
         protected float $desconto;
         private static int $numDePessoas = 0;
@@ -73,5 +73,7 @@
         {
             return $this->desconto;
         }
+
+        public abstract function __toString(): string;        
        
     }
