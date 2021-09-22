@@ -1,11 +1,13 @@
 <?php
 
-    class Pessoa
+    abstract class Pessoa
     {
         //Atributos, caracteristicas == variáveis
         private string $nome;
         private int $idade;
         private Endereco $endereco;
+
+        protected float $desconto;
         private static int $numDePessoas = 0;
 
         //comportamentos, métodos = funções
@@ -15,6 +17,8 @@
             $this->idade = $idade;
             $this->validaIdade($idade);
             $this->endereco = $endereco;
+            $this->setDesconto();
+
             self::$numDePessoas++;
             //self referencia a própria classe
         }
@@ -60,5 +64,14 @@
                 exit;
             }
         }
-    
+
+        //todas as classes filhas são obrigadas a ter uma
+        //função semelhante
+        protected abstract function setDesconto(): void;
+
+        public function getDesconto(): float
+        {
+            return $this->desconto;
+        }
+       
     }
