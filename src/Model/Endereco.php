@@ -1,7 +1,12 @@
 <?php
+    namespace Modelo;
+
+    require_once 'AcessoAtributos.php';
 
     class Endereco
     {
+        use AcessoAtributos;
+        
         private string $uf;
         private string $cidade;
         private string $nomeLogradouro;

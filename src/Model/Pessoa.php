@@ -1,7 +1,12 @@
 <?php
+    namespace Modelo;
+
+    require_once 'AcessoAtributos.php';
 
     abstract class Pessoa
     {
+        use AcessoAtributos;
+
         //Atributos, caracteristicas == variáveis
         protected string $nome;
         protected int $idade;

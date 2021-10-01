@@ -1,9 +1,13 @@
 <?php
+    namespace Modelo;
 
-    class Funcionario extends Pessoa
+    require_once "Autenticar.php";
+
+    class Funcionario extends Pessoa implements Autenticar
     {
         private string $cargo;
         private float $salario;
+        private string $senha;
 
         public function __construct(string $nome, int $idade, Endereco $endereco, string $cargo, string $salario)
         {
@@ -45,12 +49,26 @@
         //ao ser redeclarado, mas com função diferente do original
         public function __toString(): string
         {
-            return "<p>Nome: " . $this->nome .
+            return 
+                "<p>Nome: " . $this->nome .
                 "<br>Idade: " . $this->idade . 
-                "<br>end.: " . $this->endereco->getNomeLogradouro() . " " .
-                $this->endereco->getNumero() .
+                "<br>End.: " . $this->endereco->getNomeLogradouro() . " " .
+                    $this->endereco->getNumero() .
                 "<br>Cargo: " . $this->cargo .
                 "<br>Salário: R$" . $this->salario.
-                "</p>: ";
+                "</p> - ";
+        }
+
+        public function login($nome, $senha): void{
+            if($this->nome === $nome && $this->senha === $senha ) {
+                echo "<p>[ LOGIN: Usuário " . $this->nome . " autenticado com sucesso!";
+            } else {
+                echo "<p>[ ERRO! Usuário ou senha inválidos";
+            }
+        }
+
+        public function setSenha(string $senha):void
+        {
+            $this->senha = $senha;
         }
     }

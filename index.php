@@ -1,9 +1,17 @@
 <?php
 
-    require_once 'src/Pessoa.php';
-    require_once 'src/Endereco.php';
-    require_once 'src/Funcionario.php';
-    require_once 'src/Cliente.php';
+    require_once 'src/Model/Pessoa.php';
+    require_once 'src/Model/Endereco.php';
+    require_once 'src/Model/Funcionario.php';
+    require_once 'src/Model/Cliente.php';
+
+    // example of autoload
+    // require_once('autoload.php');
+
+    use Modelo\Pessoa;
+    use Modelo\Endereco;
+    use Modelo\Funcionario;
+    use Modelo\Cliente;
 
     $endereco1 = new Endereco("AP", "Macapá", "Av de teste", "123", "Central", "123456");
     $endereco2 = new Endereco("ES", "Vitória", "Av de Oi", "123", "São toquarto", "123456");
@@ -18,15 +26,18 @@
     //chamando automaticamente o método desconstrutor
     echo "<pre>";
 
-        $funcinario = new Funcionario("Samara Silva", 20, $endereco3, 'Gerente', 2.500);
-        echo $funcinario->__toString();
+        $funcinario1 = new Funcionario("Samara Silva", 20, $endereco3, 'Gerente', 2.500);
+        echo $funcinario1->__toString();
 
         $funcinario2 = new Funcionario("Antonia Silva", 20, $endereco1, 'Gerente', 2.500);
-        // var_dump($funcinario2);
+        echo $funcinario2->__toString();
 
         $cliente1 = new Cliente("José", 20, $endereco1, '01/02/1994', 2.500);
         // var_dump($cliente1);
         echo $cliente1->__toString();
+
+        $funcinario1->setSenha("12345$");
+        $funcinario1->login("Samara Silva","12345$");
 
         echo "<p>Numero de pessoas:" . Pessoa::getNumDePessoas() . "</p>";
 
